@@ -5,10 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import android.util.Log
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.codepath.asynchttpclient.AsyncHttpClient
+import com.codepath.asynchttpclient.RequestParams
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import okhttp3.Headers
 
 
 // --------------------------------//
@@ -48,10 +53,16 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
         progressBar.show()
 
         // Create and set up an AsyncHTTPClient() here
+        val client = AsyncHttpClient()
+        // Create a RequestParams object
+        val params = RequestParams()
+        // Set up the API key
+        params["api-key"] = API_KEY
 
         // Using the client, perform the HTTP request
-
-        /* Uncomment me once you complete the above sections!
+        client["https://developer.nps.gov/api/v1/parks", params, object :
+            JsonHttpResponseHandler()
+//        /* Uncomment me once you complete the above sections!
         {
             /*
              * The onSuccess function gets called when
@@ -93,7 +104,7 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
                 }
             }
         }]
-        */
+//        */
 
     }
 
