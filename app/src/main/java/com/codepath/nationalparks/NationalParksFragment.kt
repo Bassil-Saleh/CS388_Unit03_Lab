@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
 import org.json.JSONArray
 
@@ -81,12 +83,18 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
                 //TODO - Parse JSON into Models
 
                 // For debugging purposes
-                Log.d("NationalParksFragment", json.toString())
+//                Log.d("NationalParksFragment", json.toString())
                 // Filter out the "data" JSON array and turn it into a String
                 val dataJSON = json.jsonObject.get("data") as JSONArray
                 val parksRawJSON = dataJSON.toString()
 
-                val models : List<NationalPark> = mutableListOf() // Fix me!
+                // Create a Gson interface to help parse the raw JSON
+                val gson = Gson()
+                // Tell Gson what type we're expecting (a list of NationalPark objects)
+                val arrayParkType = object : TypeToken<List<NationalPark>>() {}.type
+                // Convert the raw JSON string into a list of actual NationalPark data models
+                var models: List<NationalPark> = gson.fromJson(parksRawJSON, arrayParkType)
+
                 recyclerView.adapter = NationalParksRecyclerViewAdapter(models, this@NationalParksFragment)
 
                 // Look for this in Logcat:
