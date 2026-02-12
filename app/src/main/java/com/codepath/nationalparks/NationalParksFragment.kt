@@ -19,7 +19,7 @@ import okhttp3.Headers
 // --------------------------------//
 // CHANGE THIS TO BE YOUR API KEY  //
 // --------------------------------//
-private const val API_KEY = "<YOUR-API-KEY-HERE>"
+private const val API_KEY = "7ymjFCnYwCnSPo0BUjMaFIDzmwuNs0nwFqgTKN4N"
 
 /*
  * The class for the only fragment in the app, which contains the progress bar,
@@ -57,11 +57,12 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
         // Create a RequestParams object
         val params = RequestParams()
         // Set up the API key
-        params["api-key"] = API_KEY
+        params["api_key"] = API_KEY
 
         // Using the client, perform the HTTP request
-        client["https://developer.nps.gov/api/v1/parks", params, object :
-            JsonHttpResponseHandler()
+        client["https://developer.nps.gov/api/v1/parks",
+            params,
+            object : JsonHttpResponseHandler()
 //        /* Uncomment me once you complete the above sections!
         {
             /*
