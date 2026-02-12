@@ -14,6 +14,7 @@ import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
+import org.json.JSONArray
 
 
 // --------------------------------//
@@ -78,6 +79,12 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
                 progressBar.hide()
 
                 //TODO - Parse JSON into Models
+
+                // For debugging purposes
+                Log.d("NationalParksFragment", json.toString())
+                // Filter out the "data" JSON array and turn it into a String
+                val dataJSON = json.jsonObject.get("data") as JSONArray
+                val parksRawJSON = dataJSON.toString()
 
                 val models : List<NationalPark> = mutableListOf() // Fix me!
                 recyclerView.adapter = NationalParksRecyclerViewAdapter(models, this@NationalParksFragment)
