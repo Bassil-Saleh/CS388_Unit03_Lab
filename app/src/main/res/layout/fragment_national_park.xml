@@ -8,9 +8,6 @@
     android:layout_margin="6dp">
 
     <!-- Park Name -->
-
-    <!-- Park Description -->
-
     <TextView
         android:id="@+id/park_name"
         android:layout_width="wrap_content"
@@ -20,6 +17,7 @@
         app:layout_constraintStart_toEndOf="@+id/park_image"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Park Description -->
     <TextView
         android:id="@+id/park_description"
         android:layout_width="wrap_content"
@@ -28,6 +26,7 @@
         app:layout_constraintStart_toEndOf="@+id/park_image"
         app:layout_constraintTop_toBottomOf="@+id/park_name" />
 
+    <!-- Park Image -->
     <ImageView
         android:id="@+id/park_image"
         android:layout_width="150dp"
@@ -37,6 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:srcCompat="@android:drawable/ic_menu_gallery" />
 
+    <!-- Park Location -->
     <TextView
         android:id="@+id/park_location"
         android:layout_width="wrap_content"

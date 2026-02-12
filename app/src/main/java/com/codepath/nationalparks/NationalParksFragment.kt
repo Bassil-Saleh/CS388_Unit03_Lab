@@ -80,8 +80,6 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
                 // The wait for a response is over
                 progressBar.hide()
 
-                //TODO - Parse JSON into Models
-
                 // For debugging purposes
 //                Log.d("NationalParksFragment", json.toString())
                 // Filter out the "data" JSON array and turn it into a String
