@@ -22,7 +22,7 @@ import org.json.JSONArray
 // --------------------------------//
 // CHANGE THIS TO BE YOUR API KEY  //
 // --------------------------------//
-private const val API_KEY = "7ymjFCnYwCnSPo0BUjMaFIDzmwuNs0nwFqgTKN4N"
+private const val API_KEY = "<API KEY GOES HERE>"
 
 /*
  * The class for the only fragment in the app, which contains the progress bar,
